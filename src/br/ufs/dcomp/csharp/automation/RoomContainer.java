@@ -1,18 +1,43 @@
 package br.ufs.dcomp.csharp.automation;
 
-import br.ufs.dcomp.csharp.communication.ArduinoMessenger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
-public class RoomContainer extends Node {
+public class RoomContainer{
 
-	public RoomContainer(String nodeId, String name, ArduinoMessenger messenger) {
-		super(nodeId, name, messenger);
-		// TODO Auto-generated constructor stub
+	private String id;
+	private String displayName;
+	
+	private List<Device> devices;
+	
+	public RoomContainer(String id, String name) {
+		this.id = id;
+		this.displayName = name;
+		this.devices = new ArrayList<Device>();
+	}
+	
+	public void addDevice(Device dev){
+		this.devices.add(dev);
+	}
+	
+	public void removeDevice(Device dev){
+		this.devices.remove(dev);
 	}
 
-	@Override
-	public void handleMessage(String message) {
-		// TODO Auto-generated method stub
-
+	public String getDisplayName() {
+		return displayName;
 	}
 
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	public ListIterator<Device> getDevices(){
+		return this.devices.listIterator();
+	}
 }

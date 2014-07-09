@@ -137,8 +137,4 @@ public class ArduinoMessenger implements SerialPortEventListener {
 
 		return false;
 	}
-
-	public boolean sendMessage(String message) {
-		return sendMessage(message, null);
-	}
 }
